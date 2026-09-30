@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>NoobCraftBloxTT | Hub Gaming</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#fff;background:#05050a;overflow-x:hidden}
+body:before,body:after{content:"";position:fixed;z-index:-2;border-radius:50%;filter:blur(75px);opacity:.28;pointer-events:none}
+body:before{width:400px;height:400px;background:#8b2cff;left:-160px;top:180px}
+body:after{width:380px;height:380px;background:#00eaff;right:-160px;top:680px}
+header{position:sticky;top:0;z-index:50;background:rgba(5,5,10,.9);backdrop-filter:blur(15px);border-bottom:1px solid #29293d;box-shadow:0 0 25px rgba(0,234,255,.08)}
+nav{max-width:1200px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+.logo-text{font-size:25px;font-weight:1000;text-shadow:0 0 10px #9b42ff}.logo-text b{color:#a45cff}
+nav a{color:#ddd;text-decoration:none;font-weight:800;margin-left:14px}nav a:hover{color:#00eaff;text-shadow:0 0 9px #00eaff}
+.hero{min-height:82vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:55px 20px;background:radial-gradient(circle at 50% 15%,#30205d,#111124 38%,#05050a 76%);position:relative}
+.hero-content{width:min(1100px,100%)}
+.brand-image{width:min(650px,90vw);max-height:650px;object-fit:contain;border-radius:28px;display:block;margin:0 auto 24px;box-shadow:0 0 25px rgba(0,234,255,.35),0 0 55px rgba(157,92,255,.35);border:1px solid rgba(0,234,255,.25)}
+.hero h1{font-size:clamp(40px,7vw,78px);margin:0;text-shadow:0 0 14px rgba(157,92,255,.7)}.hero h1 b{color:#a45cff}
+.hero p{max-width:780px;color:#bbb;font-size:20px;margin:15px auto 28px}
+.buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;background:#813dff;color:#fff;text-decoration:none;border:1px solid #ad80ff;border-radius:12px;padding:13px 21px;font-weight:900;cursor:pointer;box-shadow:0 0 15px rgba(129,61,255,.35)}
+.btn:hover{box-shadow:0 0 25px rgba(0,234,255,.35);border-color:#00eaff}
+.btn.alt{background:#151523;border-color:#34344d}
+section{max-width:1200px;margin:auto;padding:72px 20px}
+.title{text-align:center;font-size:40px;margin:0 0 8px;text-shadow:0 0 12px rgba(0,234,255,.18)}
+.subtitle{text-align:center;color:#999;margin:0 0 35px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card,.panel{background:linear-gradient(145deg,rgba(18,18,31,.97),rgba(10,10,18,.97));border:1px solid #30304a;border-radius:20px;padding:25px;box-shadow:0 0 25px rgba(157,92,255,.06)}
+.card:hover{border-color:#8f55ff;transform:translateY(-5px);transition:.2s;box-shadow:0 0 28px rgba(157,92,255,.18),0 0 12px rgba(0,234,255,.08)}
+.icon{font-size:42px}.card h3{font-size:23px;margin:10px 0}.card p,.panel p{color:#aaa}
+.status{display:inline-flex;align-items:center;gap:7px;margin:10px 0;padding:7px 12px;border-radius:99px;background:#242430;color:#aaa;font-size:12px;font-weight:900;border:1px solid #3a3a4c}
+.dot{width:9px;height:9px;border-radius:50%;background:#777}.online{color:#65f29a;background:#12351f;border-color:#286a40}.online .dot{background:#42f07e;box-shadow:0 0 10px #42f07e}
+.games{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.game{display:block;padding:25px;text-align:center;transition:.2s;border-radius:18px;background:#10101b;border:1px solid #30304a;box-shadow:inset 0 0 25px rgba(157,92,255,.04)}.game:hover{border-color:#00eaff;box-shadow:0 0 24px rgba(0,234,255,.18);transform:translateY(-4px)}.game strong{display:block;font-size:21px;margin-top:10px}.game small{color:#999}
+.livebox{text-align:center;padding:35px;background:linear-gradient(135deg,#121225,#0a1720);border:1px solid #343454;border-radius:24px;box-shadow:0 0 35px rgba(0,234,255,.08)}
+.live-screen{margin:25px auto;max-width:850px;aspect-ratio:16/9;border-radius:16px;border:1px solid #3b3b55;background:#06060b;display:flex;align-items:center;justify-content:center;color:#777;font-size:18px}
+.feedback-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.feedback{padding:28px;border-radius:20px;background:#10101b;border:1px solid #30304a}
+.feedback h3{margin-top:0;font-size:25px}.feedback.improve{box-shadow:0 0 25px rgba(0,234,255,.07)}.feedback.remove{box-shadow:0 0 25px rgba(255,45,130,.07)}
+.form label{display:block;font-weight:800;margin:14px 0 7px}.form input,.form textarea,.form select{width:100%;padding:13px;border-radius:10px;border:1px solid #3a3a52;background:#080810;color:white;font:inherit}.form textarea{min-height:120px;resize:vertical}
+.notice{margin-top:15px;color:#68e38c;font-weight:800;display:none}
+footer{text-align:center;color:#777;border-top:1px solid #29293c;padding:35px 20px}
+@media(max-width:800px){.grid,.feedback-grid{grid-template-columns:1fr 1fr}nav>div:last-child{display:none}}
+@media(max-width:520px){.grid,.feedback-grid{grid-template-columns:1fr}.title{font-size:31px}.brand-image{border-radius:18px}}
+</style>
+</head>
+<body>
+<header><nav>
+<div class="logo-text">NoobCraft<b>BloxTT</b></div>
+<div>
+<a href="#tiktok">TikTok</a><a href="#roblox">Roblox</a><a href="#live">Live</a><a href="#jeux">Jeux préférés</a><a href="#discord">Discord</a><a href="#avis">Avis</a>
+</div>
+</nav></header>
+
+<section class="hero">
+<div class="hero-content">
+<img class="brand-image" src="noobcraftbloxtt-logo.png" alt="Logo et visuel NoobCraftBloxTT">
+<h1>NoobCraft<b>BloxTT</b></h1>
+<p>Le hub gaming de NoobCraftBloxTT — Roblox, TikTok, TikTok Live, jeux préférés, communauté et avis sur mes vidéos.</p>
+<div class="buttons">
+<a class="btn" href="https://www.tiktok.com/@noobcraftbloxtt2?lang=fr" target="_blank">🎵 TikTok</a>
+<a class="btn alt" href="https://www.roblox.com/fr/users/10685612971/profile" target="_blank">🎮 Roblox</a>
+<a class="btn alt" href="#live">🔴 TikTok Live</a>
+<a class="btn alt" href="https://discord.gg/DeVZ6BV8a" target="_blank">💬 Discord</a>
+</div>
+</div>
+</section>
+
+<section id="tiktok">
+<h2 class="title">🎵 TikTok</h2><p class="subtitle">Le compte officiel de NoobCraftBloxTT</p>
+<div class="panel" style="text-align:center">
+<h2>@noobcraftbloxtt2</h2><p>Retrouve mon profil et toutes mes vidéos directement sur TikTok.</p>
+<a class="btn" href="https://www.tiktok.com/@noobcraftbloxtt2?lang=fr" target="_blank">Ouvrir mon TikTok</a>
+</div>
+</section>
+
+<section id="roblox">
+<h2 class="title">🎮 Roblox</h2><p class="subtitle">Mon profil et mon univers Roblox</p>
+<div class="grid">
+<div class="card"><div class="icon">👤</div><h3>Profil Roblox</h3><p>Le profil officiel de NoobCraftBloxTT.</p><a class="btn" href="https://www.roblox.com/fr/users/10685612971/profile" target="_blank">Ouvrir Roblox</a></div>
+<div class="card"><div class="icon">🏆</div><h3>Jeux préférés</h3><p>Retrouve mon top de jeux Roblox.</p></div>
+
+</div>
+</section>
+
+<section id="jeux">
+<h2 class="title">🔥 Mes jeux préférés</h2>
+<p class="subtitle">Mon Top 3 de tous mes jeux</p>
+<div class="games">
+<div class="game"><div style="font-size:45px">⛏️</div><strong>1. Minecraft</strong><small>Jeu préféré</small></div>
+<div class="game"><div style="font-size:45px">🎮</div><strong>2. Roblox</strong><small>Jeu préféré</small></div>
+<div class="game"><div style="font-size:45px">🔫</div><strong>3. Fortnite</strong><small>Jeu préféré</small></div>
+</div>
+<div style="text-align:center;margin-top:30px">
+<a class="btn" href="#top-roblox">🎮 Voir mon Top jeux Roblox</a>
+</div>
+</section>
+
+<section id="top-roblox">
+<h2 class="title">🏆 Top jeux Roblox</h2>
+<p class="subtitle">Clique sur un jeu pour accéder à Roblox</p>
+<div class="games">
+<a class="game" href="https://www.roblox.com/games/" target="_blank" style="text-decoration:none;color:white">
+<div style="font-size:45px">🎹</div><strong>1. Keyboard Escape</strong><small>Roblox</small>
+</a>
+<a class="game" href="https://www.roblox.com/games/" target="_blank" style="text-decoration:none;color:white">
+<div style="font-size:45px">🔫</div><strong>2. RIVALS</strong><small>Roblox</small>
+</a>
+<a class="game" href="https://www.roblox.com/games/" target="_blank" style="text-decoration:none;color:white">
+<div style="font-size:45px">🌙</div><strong>3. 99 Nuits</strong><small>Roblox</small>
+</a>
+</div>
+</section>
+
+<section id="live">
+<h2 class="title">🔴 TikTok Live</h2><p class="subtitle">Statut et accès au live</p>
+<div class="livebox">
+<div class="status" id="liveStatus"><span class="dot"></span><span id="statusText">HORS LIGNE</span></div>
+<h2 id="liveTitle">Pas de live actuellement</h2>
+<p id="liveDescription">Quand un live est en cours, cette zone pourra afficher les informations du live.</p>
+<div class="live-screen">📺 Zone du live TikTok</div>
+<a class="btn" href="https://www.tiktok.com/@noobcraftbloxtt2?lang=fr" target="_blank">Ouvrir TikTok</a>
+</div>
+</section>
+
+<section id="discord">
+<h2 class="title">💬 Discord</h2><p class="subtitle">La communauté NoobCraftBloxTT</p>
+<div class="panel" style="text-align:center"><h2>Serveur Discord officiel</h2><p>Rejoins la communauté pour les discussions, annonces et événements.</p><a class="btn" href="https://discord.gg/DeVZ6BV8a" target="_blank">Rejoindre Discord</a></div>
+</section>
+
+<section id="avis">
+<h2 class="title">💡 Donne ton avis sur mes vidéos</h2>
+<p class="subtitle">Dis-moi ce que je peux améliorer et ce que je devrais enlever de mes vidéos.</p>
+<div class="feedback-grid">
+<div class="feedback improve">
+<h3>⚡ À améliorer</h3>
+<p>Qu'est-ce que je pourrais améliorer dans mes vidéos ?</p>
+<form class="form" data-kind="À AMÉLIORER">
+<label>Ton idée</label>
+<textarea class="idea" required placeholder="Ex : améliorer les transitions, parler plus fort..."></textarea>
+<label>Ton pseudo (facultatif)</label>
+<input class="contact" placeholder="TikTok, Discord, pseudo...">
+<button class="btn" type="submit" style="margin-top:15px">Envoyer mon idée</button>
+</form>
+</div>
+<div class="feedback remove">
+<h3>🗑️ À enlever</h3>
+<p>Qu'est-ce que je devrais enlever ou moins mettre dans mes vidéos ?</p>
+<form class="form" data-kind="À ENLEVER">
+<label>Ta suggestion</label>
+<textarea class="idea" required placeholder="Ex : une partie trop longue, un effet, une phrase..."></textarea>
+<label>Ton pseudo (facultatif)</label>
+<input class="contact" placeholder="TikTok, Discord, pseudo...">
+<button class="btn" type="submit" style="margin-top:15px">Envoyer ma suggestion</button>
+</form>
+</div>
+</div>
+</section>
+
+<footer>© 2026 NoobCraftBloxTT — Site officiel</footer>
+
+<script>
+document.querySelectorAll(".feedback form").forEach(form=>{
+form.addEventListener("submit",function(e){
+e.preventDefault();
+const kind=form.dataset.kind;
+const idea=form.querySelector(".idea").value;
+const contact=form.querySelector(".contact").value || "Non indiqué";
+const subject=encodeURIComponent("Avis vidéo NoobCraftBloxTT — "+kind);
+const body=encodeURIComponent("Catégorie : "+kind+"\\n\\nSuggestion : "+idea+"\\n\\nPseudo/contact : "+contact);
+window.location.href="mailto:mamimedaziz@gmail.com?subject="+subject+"&body="+body;
+});
+});
+</script>
+</body>
+</html>
